@@ -4,6 +4,10 @@ class ShoppingCart:
     def __init__(self) -> None:
         self.__products: list[Product] = []
 
+    @property
+    def products(self) -> None:
+        return self.__products.copy()
+
     def add_product(self, product: Product) -> None:
         self.__products.append(product)
         
