@@ -44,5 +44,12 @@ class TestShoppingCart(unittest.TestCase):
         self.assertTrue(self.shopping_cart_2.has_products(), 'Shopping cart has no products')
         self.assertFalse(self.shopping_cart_2.is_empty(), 'Shopping cart is empty')
 
+    def test_product_in_shopping_cart(self):
+        self.assertIn(self.smart_phone, self.shopping_cart_2.products, 'Product is not in shopping cart')
+
+        product = Product('Glasses', 15.0)
+        self.shopping_cart_2.add_product(product)
+        self.assertIn(product, self.shopping_cart_2.products, 'Product is not in shopping cart')
+
 if __name__ == '__main__':
     unittest.main()
