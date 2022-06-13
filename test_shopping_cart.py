@@ -1,5 +1,6 @@
 import unittest
 from product import Product
+from shopping_cart import ShoppingCart
 
 class TestShoppingCart(unittest.TestCase):
 
@@ -15,6 +16,7 @@ class TestShoppingCart(unittest.TestCase):
         self.name = 'Samsung'
         self.price = 500.0
         self.smart_phone = Product(self.name, self.price)
+        self.shopping_cart = ShoppingCart()
 
     def tearDown(self) -> None:
         pass
@@ -32,6 +34,9 @@ class TestShoppingCart(unittest.TestCase):
     
     def test_product_price(self):
         self.assertEqual(self.smart_phone.price, self.price)
+
+    def test_shopping_cart_is_empty(self):
+        self.assertTrue(self.shopping_cart.is_empty(), 'Shopping cart is not empty')
 
 if __name__ == '__main__':
     unittest.main()
