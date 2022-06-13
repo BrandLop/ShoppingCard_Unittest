@@ -6,17 +6,19 @@ class TestShoppingCart(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print('The setUpClass called once before all tests')
+        pass
     
     @classmethod
     def tearDownClass(cls):
-        print('The tearDownClass called once after all tests')
+        pass
 
     def setUp(self) -> None:
         self.name = 'Samsung'
         self.price = 500.0
         self.smart_phone = Product(self.name, self.price)
         self.shopping_cart = ShoppingCart()
+        self.shopping_cart_2 = ShoppingCart()
+        self.shopping_cart_2.add_product(self.smart_phone)
 
     def tearDown(self) -> None:
         pass
@@ -37,6 +39,10 @@ class TestShoppingCart(unittest.TestCase):
 
     def test_shopping_cart_is_empty(self):
         self.assertTrue(self.shopping_cart.is_empty(), 'Shopping cart is not empty')
+
+    def test_shopping_cart_has_product(self):
+        self.assertTrue(self.shopping_cart_2.has_products(), 'Shopping cart has no products')
+        self.assertFalse(self.shopping_cart_2.is_empty(), 'Shopping cart is empty')
 
 if __name__ == '__main__':
     unittest.main()
