@@ -9,7 +9,7 @@ class TestShoppingCart(unittest.TestCase):
         pass
     
     @classmethod
-    def tearDownClass(cls):
+    def tearDownClass(cls): 
         pass
 
     def setUp(self) -> None:
@@ -50,6 +50,11 @@ class TestShoppingCart(unittest.TestCase):
         product = Product('Glasses', 15.0)
         self.shopping_cart_2.add_product(product)
         self.assertIn(product, self.shopping_cart_2.products, 'Product is not in shopping cart')
+
+    def test_product_not_in_shopping_cart(self):
+        self.shopping_cart_2.remove_product(self.smart_phone)
+
+        self.assertNotIn(self.smart_phone, self.shopping_cart_2.products, 'Product is still in shopping cart')
 
 if __name__ == '__main__':
     unittest.main()
