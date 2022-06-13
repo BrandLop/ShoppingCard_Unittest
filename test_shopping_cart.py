@@ -3,6 +3,14 @@ from product import Product
 
 class TestShoppingCart(unittest.TestCase):
 
+    @classmethod
+    def setUpClass(cls):
+        print('The setUpClass called once before all tests')
+    
+    @classmethod
+    def tearDownClass(cls):
+        print('The tearDownClass called once after all tests')
+
     def setUp(self) -> None:
         self.name = 'Samsung'
         self.price = 500.0
