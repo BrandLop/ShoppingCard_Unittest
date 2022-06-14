@@ -59,8 +59,19 @@ class TestShoppingCart(unittest.TestCase):
 
     def test_discount_error(self):
         with self.assertRaises(ProductDiscountError):
-            Product(name = 'Glasses', price = 15.0, discount = 20.0)
-            
+            Product(name = 'Glasses', price = 15.0, discount = 20.0)      
+
+    def test_total_shopping_cart(self):
+        self.shopping_cart.add_product(Product(name='Book', price=15.0))
+        self.shopping_cart.add_product(Product(name='Camera', price=700.0, discount=70.0))
+        self.shopping_cart.add_product(Product(name='PC', price=1000.0, discount=0.0))
+
+        self.assertGreater(self.shopping_cart.total, 0, 'Total is not greater than 0')
+        self.assertLess(self.shopping_cart.total, 2000.0, 'Total is not less than 2000.0')
+        self.assertEqual(self.shopping_cart.total, 1645.0, 'Total is not correct')
+
+    def test_total_empty_shoping_cart(self):
+        self.assertEqual(self.shopping_cart.total, 0, 'Total is not 0')
 
 if __name__ == '__main__':
     unittest.main()
