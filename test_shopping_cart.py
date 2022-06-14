@@ -83,5 +83,8 @@ class TestShoppingCart(unittest.TestCase):
     def test_skip_example_2(self):
         self.assertEqual(10, 10)
 
+    def test_code_product(self):
+        self.assertRegex(self.smart_phone.code, self.smart_phone.name, 'Code is not correct')
+
 if __name__ == '__main__':
     unittest.main()
