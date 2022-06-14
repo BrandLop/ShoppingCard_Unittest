@@ -8,6 +8,11 @@ class ShoppingCart:
     def products(self) -> None:
         return self.__products.copy()
 
+    @property
+    def total(self) -> float:
+        total = [(product.price - product.discount) for product in self.__products]
+        return sum(total);
+
     def add_product(self, product: Product) -> None:
         self.__products.append(product)
         
