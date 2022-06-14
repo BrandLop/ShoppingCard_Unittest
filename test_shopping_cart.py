@@ -3,6 +3,8 @@ from product import Product
 from product import ProductDiscountError
 from shopping_cart import ShoppingCart
 
+def is_avilable_to_skip():
+    return True
 class TestShoppingCart(unittest.TestCase):
 
     @classmethod
@@ -72,6 +74,14 @@ class TestShoppingCart(unittest.TestCase):
 
     def test_total_empty_shoping_cart(self):
         self.assertEqual(self.shopping_cart.total, 0, 'Total is not 0')
+
+    @unittest.skip('Not implemented')
+    def test_skip_example(self):
+        self.assertEqual(1, 1)
+
+    @unittest.skipIf(is_avilable_to_skip(), 'Not needed')
+    def test_skip_example_2(self):
+        self.assertEqual(10, 10)
 
 if __name__ == '__main__':
     unittest.main()
