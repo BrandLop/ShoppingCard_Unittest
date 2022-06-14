@@ -1,7 +1,7 @@
 import unittest
-from product import Product
-from product import ProductDiscountError
-from shopping_cart import ShoppingCart
+from entities.product import Product
+from entities.product import ProductDiscountError
+from entities.shopping_cart import ShoppingCart
 
 def is_avilable_to_skip():
     return True
