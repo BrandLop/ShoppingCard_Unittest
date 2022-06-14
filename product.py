@@ -9,3 +9,7 @@ class Product:
         if discount > price:
             raise ProductDiscountError('Discount cannot be greater than price')
         self.discount = discount
+
+    @property
+    def code(self):
+        return f'Code-{self.name}'
